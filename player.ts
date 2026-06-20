@@ -19,9 +19,13 @@ class Player {
     this.deck = deck ?? new Deck();
   }
 
-  static initWithDeck(isPlayer1: boolean, decklog: string) {
-    let deck = Deck.getDeckLog(decklog);
+  static initWithDeck(isPlayer1: boolean, deckLog: string) {
+    let deck = Deck.getDeckLog(deckLog);
     return new Player(isPlayer1, deck);
+  }
+  importDeck(deckLog: string){
+    let deck = Deck.getDeckLog(deckLog);
+    this.deck = deck;
   }
 }
 class Deck {
