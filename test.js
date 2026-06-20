@@ -1,5 +1,5 @@
-import { OBSWebSocket } from 'obs-websocket-js';
-import 'dotenv/config';
+import { OBSWebSocket } from "obs-websocket-js";
+import "dotenv/config";
 
 const obs = new OBSWebSocket();
 const ip_address = process.env.IP_ADDRESS;
@@ -9,14 +9,17 @@ const password = process.env.PASSWORD;
 async function connectToOBS() {
   try {
     const { obsWebSocketVersion, negotiatedRpcVersion } = await obs.connect(
-      `ws://${ip_address}:${port}`, 
-      `${password}`
+      `ws://${ip_address}:${port}`,
+      `${password}`,
     );
-    
+
     console.log(`Successfully connected to OBS v${obsWebSocketVersion}`);
 
+    obs.on("CurrentProgramSceneChanged", (data) => {
+      console.log(`Scene switched to: ${data.sceneName}`);
+    });
   } catch (error) {
-    console.error('Failed to connect to OBS:', error.message);
+    console.error("Failed to connect to OBS:", error.message);
   }
 }
 
