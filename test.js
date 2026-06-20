@@ -8,7 +8,6 @@ const password = process.env.PASSWORD;
 
 async function connectToOBS() {
   try {
-    // Replace with your actual password from OBS Server Settings
     const { obsWebSocketVersion, negotiatedRpcVersion } = await obs.connect(
       `ws://${ip_address}:${port}`, 
       `${password}`
