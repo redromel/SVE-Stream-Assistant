@@ -51,15 +51,16 @@ class Deck {
     return new Deck();
   }
 }
-
 class Card {
   public cardName: string;
   public language: string;
   public cardSet: string;
   public cardId: string;
 
-  constructor(cardName: string, cardId: string) {
+  constructor(cardName: string, language: string, cardSet: string, cardId: string) {
     this.cardName = cardName;
+    this.language = language;
+    this.cardSet = cardSet
     this.cardId = cardId;
   }
 
