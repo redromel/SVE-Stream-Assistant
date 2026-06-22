@@ -10,7 +10,7 @@ function makeInitialState(
   p2?: Partial<Player>
 ): GameState {
   const base = (goesSecond: boolean): Player => ({
-    name: "", defense: 20, pp: 0, maxPP: 0,
+    name: "", defense: 20, pp: goesSecond ? 0 : 1, maxPP: goesSecond ? 0 : 1,
     evoPoints: goesSecond ? 3 : 0,
     maxEvoPoints: 3,
     superEvoUsed: false,
@@ -63,8 +63,8 @@ export default function App() {
     setState((s) => {
       const newFirst = s.goesFirst === 0 ? 1 : 0 as 0 | 1;
       const players = [...s.players] as [Player, Player];
-      players[newFirst] = { ...players[newFirst], evoPoints: 0 };
-      players[newFirst === 0 ? 1 : 0] = { ...players[newFirst === 0 ? 1 : 0], evoPoints: 3 };
+      players[newFirst] = { ...players[newFirst], evoPoints: 0, pp: s.players[newFirst  === 0 ? 1 : 0].pp, maxPP: s.players[newFirst  === 0 ? 1 : 0].maxPP };
+      players[newFirst === 0 ? 1 : 0] = { ...players[newFirst === 0 ? 1 : 0], evoPoints: 3, pp: s.players[newFirst].pp, maxPP: s.players[newFirst].maxPP };
       return { ...s, goesFirst: newFirst, players };
     });
   }, []);
