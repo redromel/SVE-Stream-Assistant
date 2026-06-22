@@ -1,28 +1,30 @@
 # SVE Stream Assistant
 
-**SVE Stream Assistant** is a companion application designed to integrate with **OBS Studio** through **OBS WebSockets**, providing streamers with an easy way to display live match information during a _Shadowverse: Evolved_ match.
+**SVE Stream Assistant** is a companion application designed to integrate with **OBS Studio** through **OBS WebSockets**, providing streamers with an easy way to display live match information during a _Shadowverse: Evolve_ match.
 
+### Current Features
 
-## Planned Features
+Currently, features a simple frontend with the following information.
 
-The application is intended to track and display the following information for both players:
+Player 1 and 2
+- Configurable Name
+- Defense (Starting at 20)
+- Current Play Points / Max Play Points
+- Evo Points / Max Evo Points
+- Super Evolution Used
+- Predefined pronouns along with custom option
 
--   Turn Order (First or Second)
-    
--   Current Turn 
+Game State
+- Turn counter
+- Active Player toggle
+- Toggling between who goes first
 
--   Defense Points 
-    
--   Maximum Play Points
-    
--   Current Available Play Points
-    
--   Active Player / Whose Turn It Is
+### Instructions
 
--   Evolution Points
-    
--   Super Evolution 
+1. ```pnpm install``` 
 
--   Card Display
-        
+2. ```pnpm run dev```
 
+### Guide
+
+TODO!
